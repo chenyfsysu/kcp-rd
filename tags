@@ -1,0 +1,281 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DelayPacket	test.h	/^	DelayPacket(int size, const void *src = NULL) {$/;"	f	class:DelayPacket
+DelayPacket	test.h	/^class DelayPacket$/;"	c
+DelayTunnel	test.h	/^	typedef std::list<DelayPacket*> DelayTunnel;$/;"	t	class:LatencySimulator
+ICONTAINEROF	ikcp.h	/^#define ICONTAINEROF(/;"	d
+IINT16	ikcp.h	/^typedef short IINT16;$/;"	t
+IINT32	ikcp.h	/^typedef ISTDINT32 IINT32;$/;"	t
+IINT64	ikcp.h	/^typedef __int64 IINT64;$/;"	t
+IINT64	ikcp.h	/^typedef long long IINT64;$/;"	t
+IINT8	ikcp.h	/^typedef char IINT8;$/;"	t
+IKCPCB	ikcp.h	/^struct IKCPCB$/;"	s
+IKCPSEG	ikcp.cpp	/^typedef struct IKCPSEG IKCPSEG;$/;"	t	namespace:async	typeref:struct:async::IKCPSEG	file:
+IKCPSEG	ikcp.h	/^struct IKCPSEG$/;"	s
+IKCP_ACK_FAST	ikcp.cpp	/^const IUINT32 IKCP_ACK_FAST = 3;$/;"	v
+IKCP_ASK_SEND	ikcp.cpp	/^const IUINT32 IKCP_ASK_SEND = 1;		\/\/ need to send IKCP_CMD_WASK$/;"	v
+IKCP_ASK_TELL	ikcp.cpp	/^const IUINT32 IKCP_ASK_TELL = 2;		\/\/ need to send IKCP_CMD_WINS$/;"	v
+IKCP_CMD_ACK	ikcp.cpp	/^const IUINT32 IKCP_CMD_ACK = 82;		\/\/ cmd: ack$/;"	v
+IKCP_CMD_PUSH	ikcp.cpp	/^const IUINT32 IKCP_CMD_PUSH = 81;		\/\/ cmd: push data$/;"	v
+IKCP_CMD_UDP_PUSH	ikcp.cpp	/^const IUINT32 IKCP_CMD_UDP_PUSH = 85;	\/\/ cmd: push udp data$/;"	v
+IKCP_CMD_WASK	ikcp.cpp	/^const IUINT32 IKCP_CMD_WASK = 83;		\/\/ cmd: window probe (ask)$/;"	v
+IKCP_CMD_WINS	ikcp.cpp	/^const IUINT32 IKCP_CMD_WINS = 84;		\/\/ cmd: window size (tell)$/;"	v
+IKCP_DEADLINK	ikcp.cpp	/^const IUINT32 IKCP_DEADLINK = 20;$/;"	v
+IKCP_INTERVAL	ikcp.cpp	/^const IUINT32 IKCP_INTERVAL = 100;$/;"	v
+IKCP_LOG_INPUT	ikcp.h	/^#define IKCP_LOG_INPUT	/;"	d
+IKCP_LOG_IN_ACK	ikcp.h	/^#define IKCP_LOG_IN_ACK	/;"	d
+IKCP_LOG_IN_DATA	ikcp.h	/^#define IKCP_LOG_IN_DATA	/;"	d
+IKCP_LOG_IN_PROBE	ikcp.h	/^#define IKCP_LOG_IN_PROBE	/;"	d
+IKCP_LOG_IN_WINS	ikcp.h	/^#define IKCP_LOG_IN_WINS	/;"	d
+IKCP_LOG_OUTPUT	ikcp.h	/^#define IKCP_LOG_OUTPUT	/;"	d
+IKCP_LOG_OUT_ACK	ikcp.h	/^#define IKCP_LOG_OUT_ACK	/;"	d
+IKCP_LOG_OUT_DATA	ikcp.h	/^#define IKCP_LOG_OUT_DATA	/;"	d
+IKCP_LOG_OUT_PROBE	ikcp.h	/^#define IKCP_LOG_OUT_PROBE	/;"	d
+IKCP_LOG_OUT_WINS	ikcp.h	/^#define IKCP_LOG_OUT_WINS	/;"	d
+IKCP_LOG_RECV	ikcp.h	/^#define IKCP_LOG_RECV	/;"	d
+IKCP_LOG_SEND	ikcp.h	/^#define IKCP_LOG_SEND	/;"	d
+IKCP_MTU_DEF	ikcp.cpp	/^const IUINT32 IKCP_MTU_DEF = 996;$/;"	v
+IKCP_OVERHEAD	ikcp.cpp	/^const IUINT32 IKCP_OVERHEAD = 24;$/;"	v
+IKCP_PROBE_INIT	ikcp.cpp	/^const IUINT32 IKCP_PROBE_INIT = 7000;		\/\/ 7 secs to probe window size$/;"	v
+IKCP_PROBE_LIMIT	ikcp.cpp	/^const IUINT32 IKCP_PROBE_LIMIT = 120000;	\/\/ up to 120 secs to probe window$/;"	v
+IKCP_RTO_DEF	ikcp.cpp	/^const IUINT32 IKCP_RTO_DEF = 200;$/;"	v
+IKCP_RTO_MAX	ikcp.cpp	/^const IUINT32 IKCP_RTO_MAX = 60000;$/;"	v
+IKCP_RTO_MIN	ikcp.cpp	/^const IUINT32 IKCP_RTO_MIN = 100;		\/\/ normal min rto$/;"	v
+IKCP_RTO_NDL	ikcp.cpp	/^const IUINT32 IKCP_RTO_NDL = 30;		\/\/ no delay min rto$/;"	v
+IKCP_THRESH_INIT	ikcp.cpp	/^const IUINT32 IKCP_THRESH_INIT = 2;$/;"	v
+IKCP_THRESH_MIN	ikcp.cpp	/^const IUINT32 IKCP_THRESH_MIN = 2;$/;"	v
+IKCP_WND_RCV	ikcp.cpp	/^const IUINT32 IKCP_WND_RCV = 32;$/;"	v
+IKCP_WND_SND	ikcp.cpp	/^const IUINT32 IKCP_WND_SND = 32;$/;"	v
+INLINE	ikcp.h	/^#define INLINE /;"	d
+IOFFSETOF	ikcp.h	/^#define IOFFSETOF(/;"	d
+IQUEUEHEAD	ikcp.h	/^struct IQUEUEHEAD {$/;"	s
+IQUEUE_ADD	ikcp.h	/^#define IQUEUE_ADD(/;"	d
+IQUEUE_ADD_TAIL	ikcp.h	/^#define IQUEUE_ADD_TAIL(/;"	d
+IQUEUE_DEL	ikcp.h	/^#define IQUEUE_DEL(/;"	d
+IQUEUE_DEL_BETWEEN	ikcp.h	/^#define IQUEUE_DEL_BETWEEN(/;"	d
+IQUEUE_DEL_INIT	ikcp.h	/^#define IQUEUE_DEL_INIT(/;"	d
+IQUEUE_ENTRY	ikcp.h	/^#define IQUEUE_ENTRY(/;"	d
+IQUEUE_FOREACH	ikcp.h	/^#define IQUEUE_FOREACH(/;"	d
+IQUEUE_HEAD	ikcp.h	/^#define IQUEUE_HEAD(/;"	d
+IQUEUE_HEAD_INIT	ikcp.h	/^#define IQUEUE_HEAD_INIT(/;"	d
+IQUEUE_INIT	ikcp.h	/^#define IQUEUE_INIT(/;"	d
+IQUEUE_IS_EMPTY	ikcp.h	/^#define IQUEUE_IS_EMPTY(/;"	d
+ISTDINT32	ikcp.h	/^	typedef SInt32 ISTDINT32;$/;"	t
+ISTDINT32	ikcp.h	/^	typedef __int32 ISTDINT32;$/;"	t
+ISTDINT32	ikcp.h	/^	typedef int ISTDINT32;$/;"	t
+ISTDINT32	ikcp.h	/^	typedef int32_t ISTDINT32;$/;"	t
+ISTDINT32	ikcp.h	/^	typedef long ISTDINT32;$/;"	t
+ISTDUINT32	ikcp.h	/^	typedef UInt32 ISTDUINT32;$/;"	t
+ISTDUINT32	ikcp.h	/^	typedef u_int32_t ISTDUINT32;$/;"	t
+ISTDUINT32	ikcp.h	/^	typedef uint32_t ISTDUINT32;$/;"	t
+ISTDUINT32	ikcp.h	/^	typedef unsigned __int32 ISTDUINT32;$/;"	t
+ISTDUINT32	ikcp.h	/^	typedef unsigned int ISTDUINT32;$/;"	t
+ISTDUINT32	ikcp.h	/^	typedef unsigned long ISTDUINT32; $/;"	t
+ISTDUINT32	ikcp.h	/^	typedef unsigned long ISTDUINT32;$/;"	t
+IUINT16	ikcp.h	/^typedef unsigned short IUINT16;$/;"	t
+IUINT32	ikcp.h	/^typedef ISTDUINT32 IUINT32;$/;"	t
+IUINT64	ikcp.h	/^typedef unsigned __int64 IUINT64;$/;"	t
+IUINT64	ikcp.h	/^typedef unsigned long long IUINT64;$/;"	t
+IUINT8	ikcp.h	/^typedef unsigned char IUINT8;$/;"	t
+IWORDS_BIG_ENDIAN	ikcp.h	/^            #define IWORDS_BIG_ENDIAN /;"	d
+IWORDS_BIG_ENDIAN	ikcp.h	/^        #define IWORDS_BIG_ENDIAN /;"	d
+LatencySimulator	test.h	/^	LatencySimulator(int lostrate = 10, int rttmin = 60, int rttmax = 125, int nmax = 1000): $/;"	f	class:LatencySimulator
+LatencySimulator	test.h	/^class LatencySimulator$/;"	c
+Random	test.h	/^	Random(int size) {$/;"	f	class:Random
+Random	test.h	/^class Random$/;"	c
+__IINT16_DEFINED	ikcp.h	/^#define __IINT16_DEFINED$/;"	d
+__IINT32_DEFINED	ikcp.h	/^#define __IINT32_DEFINED$/;"	d
+__IINT64_DEFINED	ikcp.h	/^#define __IINT64_DEFINED$/;"	d
+__IINT8_DEFINED	ikcp.h	/^#define __IINT8_DEFINED$/;"	d
+__IKCP_H__	ikcp.h	/^#define __IKCP_H__$/;"	d
+__INTEGER_32_BITS__	ikcp.h	/^#define __INTEGER_32_BITS__$/;"	d
+__IQUEUE_DEF__	ikcp.h	/^#define __IQUEUE_DEF__$/;"	d
+__IUINT16_DEFINED	ikcp.h	/^#define __IUINT16_DEFINED$/;"	d
+__IUINT32_DEFINED	ikcp.h	/^#define __IUINT32_DEFINED$/;"	d
+__IUINT64_DEFINED	ikcp.h	/^#define __IUINT64_DEFINED$/;"	d
+__IUINT8_DEFINED	ikcp.h	/^#define __IUINT8_DEFINED$/;"	d
+__TEST_H__	test.h	/^#define __TEST_H__$/;"	d
+__iqueue_splice	ikcp.h	/^#define __iqueue_splice(/;"	d
+__unix	test.h	/^#define __unix$/;"	d
+_ibound_	ikcp.cpp	/^static inline IUINT32 _ibound_(IUINT32 lower, IUINT32 middle, IUINT32 upper) $/;"	f	namespace:async
+_imax_	ikcp.cpp	/^static inline IUINT32 _imax_(IUINT32 a, IUINT32 b) {$/;"	f	namespace:async
+_imin_	ikcp.cpp	/^static inline IUINT32 _imin_(IUINT32 a, IUINT32 b) {$/;"	f	namespace:async
+_itimediff	ikcp.cpp	/^static inline long _itimediff(IUINT32 later, IUINT32 earlier) $/;"	f	namespace:async
+_ptr	test.h	/^	unsigned char *_ptr;$/;"	m	class:DelayPacket
+_size	test.h	/^	int _size;$/;"	m	class:DelayPacket
+_ts	test.h	/^	IUINT32 _ts;$/;"	m	class:DelayPacket
+ackblock	ikcp.h	/^	IUINT32 ackblock;$/;"	m	struct:IKCPCB
+ackcount	ikcp.h	/^	IUINT32 ackcount;$/;"	m	struct:IKCPCB
+acklist	ikcp.h	/^	IUINT32 *acklist;$/;"	m	struct:IKCPCB
+async	ikcp.cpp	/^namespace async {$/;"	n	file:
+async	ikcp.h	/^namespace async{$/;"	n
+buffer	ikcp.h	/^	char *buffer;$/;"	m	struct:IKCPCB
+clear	test.h	/^	void clear() {$/;"	f	class:LatencySimulator
+cmd	ikcp.h	/^	IUINT32 cmd;$/;"	m	struct:IKCPSEG
+conv	ikcp.h	/^	IUINT32 conv, mtu, mss, state;$/;"	m	struct:IKCPCB
+conv	ikcp.h	/^	IUINT32 conv;$/;"	m	struct:IKCPSEG
+current	ikcp.h	/^	IUINT32 current, interval, ts_flush, xmit;$/;"	m	struct:IKCPCB
+current	test.h	/^	IUINT32 current;$/;"	m	class:LatencySimulator
+cwnd	ikcp.h	/^	IUINT32 snd_wnd, rcv_wnd, rmt_wnd, cwnd, probe;$/;"	m	struct:IKCPCB
+data	ikcp.h	/^	char data[1];$/;"	m	struct:IKCPSEG
+dead_link	ikcp.h	/^	IUINT32 dead_link, incr;$/;"	m	struct:IKCPCB
+f_resnd_size	ikcp.h	/^	IUINT64 f_resnd_size, t_resnd_size, send_data_size, rd_snd_size;  \/\/ $/;"	m	struct:IKCPCB
+f_resnd_times	ikcp.h	/^	IUINT32 f_resnd_times, t_resnd_times, slow_start_times, rd_cnt, rd_snd_times;$/;"	m	struct:IKCPCB
+fastack	ikcp.h	/^	IUINT32 fastack;$/;"	m	struct:IKCPSEG
+fastresend	ikcp.h	/^	int fastresend;$/;"	m	struct:IKCPCB
+frg	ikcp.h	/^	IUINT32 frg;$/;"	m	struct:IKCPSEG
+iclock	test.h	/^static inline IUINT32 iclock()$/;"	f
+iclock64	test.h	/^static inline IINT64 iclock64(void)$/;"	f
+ikcp_ack_get	ikcp.cpp	/^static void ikcp_ack_get(const ikcpcb *kcp, int p, IUINT32 *sn, IUINT32 *ts)$/;"	f	namespace:async
+ikcp_ack_push	ikcp.cpp	/^static void ikcp_ack_push(ikcpcb *kcp, IUINT32 sn, IUINT32 ts)$/;"	f	namespace:async
+ikcp_allocator	ikcp.cpp	/^void ikcp_allocator(void* (*new_malloc)(size_t), void (*new_free)(void*))$/;"	f	namespace:async
+ikcp_canlog	ikcp.cpp	/^static int ikcp_canlog(const ikcpcb *kcp, int mask)$/;"	f	namespace:async
+ikcp_check	ikcp.cpp	/^IUINT32 ikcp_check(const ikcpcb *kcp, IUINT32 current)$/;"	f	namespace:async
+ikcp_create	ikcp.cpp	/^ikcpcb* ikcp_create(IUINT32 conv, void *user)$/;"	f	namespace:async
+ikcp_decode16u	ikcp.cpp	/^static inline const char *ikcp_decode16u(const char *p, unsigned short *w)$/;"	f	namespace:async
+ikcp_decode32u	ikcp.cpp	/^static inline const char *ikcp_decode32u(const char *p, IUINT32 *l)$/;"	f	namespace:async
+ikcp_decode8u	ikcp.cpp	/^static inline const char *ikcp_decode8u(const char *p, unsigned char *c)$/;"	f	namespace:async
+ikcp_encode16u	ikcp.cpp	/^static inline char *ikcp_encode16u(char *p, unsigned short w)$/;"	f	namespace:async
+ikcp_encode32u	ikcp.cpp	/^static inline char *ikcp_encode32u(char *p, IUINT32 l)$/;"	f	namespace:async
+ikcp_encode8u	ikcp.cpp	/^static inline char *ikcp_encode8u(char *p, unsigned char c)$/;"	f	namespace:async
+ikcp_encode_seg	ikcp.cpp	/^static char *ikcp_encode_seg(char *ptr, const IKCPSEG *seg)$/;"	f	namespace:async
+ikcp_flush	ikcp.cpp	/^void ikcp_flush(ikcpcb *kcp)$/;"	f	namespace:async
+ikcp_free	ikcp.cpp	/^static void ikcp_free(void *ptr) {$/;"	f	namespace:async
+ikcp_free_hook	ikcp.cpp	/^static void (*ikcp_free_hook)(void *) = NULL;$/;"	m	namespace:async	file:
+ikcp_getconv	ikcp.cpp	/^IUINT32 ikcp_getconv(const void *ptr)$/;"	f	namespace:async
+ikcp_input	ikcp.cpp	/^int ikcp_input(ikcpcb *kcp, const char *data, long size)$/;"	f	namespace:async
+ikcp_interval	ikcp.cpp	/^int ikcp_interval(ikcpcb *kcp, int interval)$/;"	f	namespace:async
+ikcp_log	ikcp.cpp	/^void ikcp_log(ikcpcb *kcp, int mask, const char *fmt, ...)$/;"	f	namespace:async
+ikcp_malloc	ikcp.cpp	/^static void* ikcp_malloc(size_t size) {$/;"	f	namespace:async
+ikcp_malloc_hook	ikcp.cpp	/^static void* (*ikcp_malloc_hook)(size_t) = NULL;$/;"	m	namespace:async	file:
+ikcp_nodelay	ikcp.cpp	/^int ikcp_nodelay(ikcpcb *kcp, int nodelay, int interval, int resend, int nc)$/;"	f	namespace:async
+ikcp_output	ikcp.cpp	/^static int ikcp_output(ikcpcb *kcp, const void *data, int size)$/;"	f	namespace:async
+ikcp_parse_ack	ikcp.cpp	/^static void ikcp_parse_ack(ikcpcb *kcp, IUINT32 sn)$/;"	f	namespace:async
+ikcp_parse_data	ikcp.cpp	/^void ikcp_parse_data(ikcpcb *kcp, IKCPSEG *newseg)$/;"	f	namespace:async
+ikcp_parse_fastack	ikcp.cpp	/^static void ikcp_parse_fastack(ikcpcb *kcp, IUINT32 sn)$/;"	f	namespace:async
+ikcp_parse_una	ikcp.cpp	/^static void ikcp_parse_una(ikcpcb *kcp, IUINT32 una)$/;"	f	namespace:async
+ikcp_peeksize	ikcp.cpp	/^int ikcp_peeksize(const ikcpcb *kcp)$/;"	f	namespace:async
+ikcp_qprint	ikcp.cpp	/^void ikcp_qprint(const char *name, const struct IQUEUEHEAD *head)$/;"	f	namespace:async
+ikcp_rdcnt	ikcp.cpp	/^int ikcp_rdcnt(ikcpcb *kcp, int rd_cnt)$/;"	f	namespace:async
+ikcp_recv	ikcp.cpp	/^int ikcp_recv(ikcpcb *kcp, char *buffer, int len)$/;"	f	namespace:async
+ikcp_recv_ex	ikcp.cpp	/^int ikcp_recv_ex(ikcpcb *kcp, char *buffer, int len)$/;"	f	namespace:async
+ikcp_release	ikcp.cpp	/^void ikcp_release(ikcpcb *kcp)$/;"	f	namespace:async
+ikcp_segment_delete	ikcp.cpp	/^static void ikcp_segment_delete(ikcpcb *kcp, IKCPSEG *seg)$/;"	f	namespace:async
+ikcp_segment_new	ikcp.cpp	/^static IKCPSEG* ikcp_segment_new(ikcpcb *kcp, int size)$/;"	f	namespace:async
+ikcp_send	ikcp.cpp	/^int ikcp_send(ikcpcb *kcp, const char *buffer, int len)$/;"	f	namespace:async
+ikcp_send_seg	ikcp.cpp	/^void ikcp_send_seg(ikcpcb *kcp, IKCPSEG *seg, char* buffer, char *ptr)$/;"	f	namespace:async
+ikcp_setmtu	ikcp.cpp	/^int ikcp_setmtu(ikcpcb *kcp, int mtu)$/;"	f	namespace:async
+ikcp_shrink_buf	ikcp.cpp	/^static void ikcp_shrink_buf(ikcpcb *kcp)$/;"	f	namespace:async
+ikcp_udp_recv	ikcp.cpp	/^int ikcp_udp_recv(ikcpcb *kcp, char *buffer, int len)$/;"	f	namespace:async
+ikcp_udp_send	ikcp.cpp	/^int ikcp_udp_send(ikcpcb *kcp, const char *buffer, int len)$/;"	f	namespace:async
+ikcp_update	ikcp.cpp	/^void ikcp_update(ikcpcb *kcp, IUINT32 current)$/;"	f	namespace:async
+ikcp_update_ack	ikcp.cpp	/^static void ikcp_update_ack(ikcpcb *kcp, IINT32 rtt)$/;"	f	namespace:async
+ikcp_waitsnd	ikcp.cpp	/^int ikcp_waitsnd(const ikcpcb *kcp)$/;"	f	namespace:async
+ikcp_wnd_unused	ikcp.cpp	/^static int ikcp_wnd_unused(const ikcpcb *kcp)$/;"	f	namespace:async
+ikcp_wndsize	ikcp.cpp	/^int ikcp_wndsize(ikcpcb *kcp, int sndwnd, int rcvwnd)$/;"	f	namespace:async
+ikcpcb	ikcp.h	/^typedef struct IKCPCB ikcpcb;$/;"	t	typeref:struct:IKCPCB
+incr	ikcp.h	/^	IUINT32 dead_link, incr;$/;"	m	struct:IKCPCB
+inline	ikcp.h	/^#define inline /;"	d
+interval	ikcp.h	/^	IUINT32 current, interval, ts_flush, xmit;$/;"	m	struct:IKCPCB
+iqueue_add	ikcp.h	/^#define iqueue_add	/;"	d
+iqueue_add_tail	ikcp.h	/^#define iqueue_add_tail	/;"	d
+iqueue_del	ikcp.h	/^#define iqueue_del	/;"	d
+iqueue_del_init	ikcp.h	/^#define iqueue_del_init	/;"	d
+iqueue_entry	ikcp.h	/^#define iqueue_entry	/;"	d
+iqueue_foreach	ikcp.h	/^#define iqueue_foreach(/;"	d
+iqueue_foreach_entry	ikcp.h	/^#define iqueue_foreach_entry(/;"	d
+iqueue_head	ikcp.h	/^typedef struct IQUEUEHEAD iqueue_head;$/;"	t	typeref:struct:IQUEUEHEAD
+iqueue_init	ikcp.h	/^#define iqueue_init	/;"	d
+iqueue_is_empty	ikcp.h	/^#define iqueue_is_empty /;"	d
+iqueue_splice	ikcp.h	/^#define iqueue_splice(/;"	d
+iqueue_splice_init	ikcp.h	/^#define iqueue_splice_init(/;"	d
+isleep	test.h	/^static inline void isleep(unsigned long millisecond)$/;"	f
+itimeofday	test.h	/^static inline void itimeofday(long *sec, long *usec)$/;"	f
+len	ikcp.h	/^	IUINT32 len;$/;"	m	struct:IKCPSEG
+logmask	ikcp.h	/^	int logmask;$/;"	m	struct:IKCPCB
+lostrate	test.h	/^	int lostrate;$/;"	m	class:LatencySimulator
+main	test.cpp	/^int main()$/;"	f
+mss	ikcp.h	/^	IUINT32 conv, mtu, mss, state;$/;"	m	struct:IKCPCB
+mtu	ikcp.h	/^	IUINT32 conv, mtu, mss, state;$/;"	m	struct:IKCPCB
+next	ikcp.h	/^	struct IQUEUEHEAD *next, *prev;$/;"	m	struct:IQUEUEHEAD	typeref:struct:IQUEUEHEAD::IQUEUEHEAD
+nmax	test.h	/^	int nmax;$/;"	m	class:LatencySimulator
+nocwnd	ikcp.h	/^	int nocwnd, stream;$/;"	m	struct:IKCPCB
+node	ikcp.h	/^	struct IQUEUEHEAD node;$/;"	m	struct:IKCPSEG	typeref:struct:IKCPSEG::IQUEUEHEAD
+nodelay	ikcp.h	/^	IUINT32 nodelay, updated;$/;"	m	struct:IKCPCB
+not_reliable	ikcp.h	/^	int not_reliable;$/;"	m	struct:IKCPSEG
+nrcv_buf	ikcp.h	/^	IUINT32 nrcv_buf, nsnd_buf;$/;"	m	struct:IKCPCB
+nrcv_que	ikcp.h	/^	IUINT32 nrcv_que, nsnd_que, nrcv_udp_que;$/;"	m	struct:IKCPCB
+nrcv_udp_que	ikcp.h	/^	IUINT32 nrcv_que, nsnd_que, nrcv_udp_que;$/;"	m	struct:IKCPCB
+nsnd_buf	ikcp.h	/^	IUINT32 nrcv_buf, nsnd_buf;$/;"	m	struct:IKCPCB
+nsnd_que	ikcp.h	/^	IUINT32 nrcv_que, nsnd_que, nrcv_udp_que;$/;"	m	struct:IKCPCB
+output	ikcp.h	/^	int (*output)(const char *buf, int len, struct IKCPCB *kcp, void *user);$/;"	m	struct:IKCPCB
+p12	test.h	/^	DelayTunnel p12;$/;"	m	class:LatencySimulator
+p21	test.h	/^	DelayTunnel p21;$/;"	m	class:LatencySimulator
+prev	ikcp.h	/^	struct IQUEUEHEAD *next, *prev;$/;"	m	struct:IQUEUEHEAD	typeref:struct:IQUEUEHEAD::
+probe	ikcp.h	/^	IUINT32 snd_wnd, rcv_wnd, rmt_wnd, cwnd, probe;$/;"	m	struct:IKCPCB
+probe_wait	ikcp.h	/^	IUINT32 ts_probe, probe_wait;$/;"	m	struct:IKCPCB
+ptr	test.h	/^	const unsigned char* ptr() const { return _ptr; }$/;"	f	class:DelayPacket
+ptr	test.h	/^	unsigned char* ptr() { return _ptr; }$/;"	f	class:DelayPacket
+r12	test.h	/^	Random r12;$/;"	m	class:LatencySimulator
+r21	test.h	/^	Random r21;$/;"	m	class:LatencySimulator
+random	test.h	/^	int random() {$/;"	f	class:Random
+rcv_buf	ikcp.h	/^	struct IQUEUEHEAD rcv_buf;$/;"	m	struct:IKCPCB	typeref:struct:IKCPCB::IQUEUEHEAD
+rcv_nxt	ikcp.h	/^	IUINT32 snd_una, snd_nxt, rcv_nxt;$/;"	m	struct:IKCPCB
+rcv_queue	ikcp.h	/^	struct IQUEUEHEAD rcv_queue;$/;"	m	struct:IKCPCB	typeref:struct:IKCPCB::IQUEUEHEAD
+rcv_udp_queue	ikcp.h	/^	struct IQUEUEHEAD rcv_udp_queue;$/;"	m	struct:IKCPCB	typeref:struct:IKCPCB::IQUEUEHEAD
+rcv_wnd	ikcp.h	/^	IUINT32 snd_wnd, rcv_wnd, rmt_wnd, cwnd, probe;$/;"	m	struct:IKCPCB
+rd_cnt	ikcp.h	/^	IUINT32 f_resnd_times, t_resnd_times, slow_start_times, rd_cnt, rd_snd_times;$/;"	m	struct:IKCPCB
+rd_snd_size	ikcp.h	/^	IUINT64 f_resnd_size, t_resnd_size, send_data_size, rd_snd_size;  \/\/ $/;"	m	struct:IKCPCB
+rd_snd_times	ikcp.h	/^	IUINT32 f_resnd_times, t_resnd_times, slow_start_times, rd_cnt, rd_snd_times;$/;"	m	struct:IKCPCB
+recv	test.h	/^	int recv(int peer, void *data, int maxsize) {$/;"	f	class:LatencySimulator
+resendts	ikcp.h	/^	IUINT32 resendts;$/;"	m	struct:IKCPSEG
+rmt_wnd	ikcp.h	/^	IUINT32 snd_wnd, rcv_wnd, rmt_wnd, cwnd, probe;$/;"	m	struct:IKCPCB
+rto	ikcp.h	/^	IUINT32 rto;$/;"	m	struct:IKCPSEG
+rttmax	test.h	/^	int rttmax;$/;"	m	class:LatencySimulator
+rttmin	test.h	/^	int rttmin;$/;"	m	class:LatencySimulator
+rx_minrto	ikcp.h	/^	IINT32 rx_rttval, rx_srtt, rx_rto, rx_minrto;$/;"	m	struct:IKCPCB
+rx_rto	ikcp.h	/^	IINT32 rx_rttval, rx_srtt, rx_rto, rx_minrto;$/;"	m	struct:IKCPCB
+rx_rttval	ikcp.h	/^	IINT32 rx_rttval, rx_srtt, rx_rto, rx_minrto;$/;"	m	struct:IKCPCB
+rx_srtt	ikcp.h	/^	IINT32 rx_rttval, rx_srtt, rx_rto, rx_minrto;$/;"	m	struct:IKCPCB
+seeds	test.h	/^	std::vector<int> seeds;$/;"	m	class:Random
+send	test.h	/^	void send(int peer, const void *data, int size) {$/;"	f	class:LatencySimulator
+send_data_size	ikcp.h	/^	IUINT64 f_resnd_size, t_resnd_size, send_data_size, rd_snd_size;  \/\/ $/;"	m	struct:IKCPCB
+setts	test.h	/^	void setts(IUINT32 ts) { _ts = ts; }$/;"	f	class:DelayPacket
+size	test.h	/^	int size() const { return _size; }$/;"	f	class:DelayPacket
+size	test.h	/^	int size;$/;"	m	class:Random
+slow_start_times	ikcp.h	/^	IUINT32 f_resnd_times, t_resnd_times, slow_start_times, rd_cnt, rd_snd_times;$/;"	m	struct:IKCPCB
+sn	ikcp.h	/^	IUINT32 sn;$/;"	m	struct:IKCPSEG
+snd_buf	ikcp.h	/^	struct IQUEUEHEAD snd_buf;$/;"	m	struct:IKCPCB	typeref:struct:IKCPCB::IQUEUEHEAD
+snd_nxt	ikcp.h	/^	IUINT32 snd_una, snd_nxt, rcv_nxt;$/;"	m	struct:IKCPCB
+snd_queue	ikcp.h	/^	struct IQUEUEHEAD snd_queue;$/;"	m	struct:IKCPCB	typeref:struct:IKCPCB::IQUEUEHEAD
+snd_una	ikcp.h	/^	IUINT32 snd_una, snd_nxt, rcv_nxt;$/;"	m	struct:IKCPCB
+snd_wnd	ikcp.h	/^	IUINT32 snd_wnd, rcv_wnd, rmt_wnd, cwnd, probe;$/;"	m	struct:IKCPCB
+ssthresh	ikcp.h	/^	IUINT32 ts_recent, ts_lastack, ssthresh;$/;"	m	struct:IKCPCB
+state	ikcp.h	/^	IUINT32 conv, mtu, mss, state;$/;"	m	struct:IKCPCB
+stream	ikcp.h	/^	int nocwnd, stream;$/;"	m	struct:IKCPCB
+t_resnd_size	ikcp.h	/^	IUINT64 f_resnd_size, t_resnd_size, send_data_size, rd_snd_size;  \/\/ $/;"	m	struct:IKCPCB
+t_resnd_times	ikcp.h	/^	IUINT32 f_resnd_times, t_resnd_times, slow_start_times, rd_cnt, rd_snd_times;$/;"	m	struct:IKCPCB
+test	test.cpp	/^void test(int mode)$/;"	f
+ts	ikcp.h	/^	IUINT32 ts;$/;"	m	struct:IKCPSEG
+ts	test.h	/^	IUINT32 ts() const { return _ts; }$/;"	f	class:DelayPacket
+ts_flush	ikcp.h	/^	IUINT32 current, interval, ts_flush, xmit;$/;"	m	struct:IKCPCB
+ts_lastack	ikcp.h	/^	IUINT32 ts_recent, ts_lastack, ssthresh;$/;"	m	struct:IKCPCB
+ts_probe	ikcp.h	/^	IUINT32 ts_probe, probe_wait;$/;"	m	struct:IKCPCB
+ts_recent	ikcp.h	/^	IUINT32 ts_recent, ts_lastack, ssthresh;$/;"	m	struct:IKCPCB
+tx1	test.h	/^	int tx1;$/;"	m	class:LatencySimulator
+tx2	test.h	/^	int tx2;$/;"	m	class:LatencySimulator
+udp_output	test.cpp	/^int udp_output(const char *buf, int len, ikcpcb *kcp, void *user)$/;"	f
+una	ikcp.h	/^	IUINT32 una;$/;"	m	struct:IKCPSEG
+updated	ikcp.h	/^	IUINT32 nodelay, updated;$/;"	m	struct:IKCPCB
+user	ikcp.h	/^	void *user;$/;"	m	struct:IKCPCB
+vnet	test.cpp	/^LatencySimulator *vnet;$/;"	v
+wnd	ikcp.h	/^	IUINT32 wnd;$/;"	m	struct:IKCPSEG
+writelog	ikcp.h	/^	void (*writelog)(const char *log, struct IKCPCB *kcp, void *user);$/;"	m	struct:IKCPCB
+xmit	ikcp.h	/^	IUINT32 current, interval, ts_flush, xmit;$/;"	m	struct:IKCPCB
+xmit	ikcp.h	/^	IUINT32 xmit;$/;"	m	struct:IKCPSEG
+~DelayPacket	test.h	/^	virtual ~DelayPacket() {$/;"	f	class:DelayPacket
+~LatencySimulator	test.h	/^	virtual ~LatencySimulator() {$/;"	f	class:LatencySimulator

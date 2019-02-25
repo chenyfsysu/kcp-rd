@@ -303,8 +303,8 @@ struct IKCPCB
 	int fastresend;
 	int nocwnd, stream;
 	int logmask;
-	IUINT64 f_resnd_size, t_resnd_size, send_data_size;  // 
-	IUINT32 f_resnd_times, t_resnd_times, slow_start_times;
+	IUINT64 f_resnd_size, t_resnd_size, send_data_size, rd_snd_size;  // 
+	IUINT32 f_resnd_times, t_resnd_times, slow_start_times, rd_cnt, rd_snd_times;
 	int (*output)(const char *buf, int len, struct IKCPCB *kcp, void *user);
 	void (*writelog)(const char *log, struct IKCPCB *kcp, void *user);
 };

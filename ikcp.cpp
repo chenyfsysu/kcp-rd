@@ -19,7 +19,6 @@
 //#include <glog/logging.h>
 
 
-
 //=====================================================================
 // KCP BASIC
 //=====================================================================
@@ -296,6 +295,9 @@ ikcpcb* ikcp_create(IUINT32 conv, void *user)
 	kcp->f_resnd_times = 0;
 	kcp->t_resnd_times = 0;
 	kcp->slow_start_times = 0;
+    kcp->rd_snd_size = 0;
+    kcp->rd_cnt = 0;
+    kcp->rd_snd_times = 0;
 	kcp->output = NULL;
 	kcp->writelog = NULL;
 
@@ -1077,6 +1079,29 @@ static int ikcp_wnd_unused(const ikcpcb *kcp)
 	return 0;
 }
 
+//--------------------------------------------------------------------
+// send_seg
+// -------------------------------------------------------------------
+char* ikcp_send_seg(ikcpcb *kcp, IKCPSEG *seg, char* buffer, char *ptr)
+{
+    int size, need;
+    size = (int)(ptr - buffer);
+    need = IKCP_OVERHEAD + seg->len;
+
+    if (size + need > (int)kcp->mtu) {
+        ikcp_output(kcp, buffer, size);
+        ptr = buffer;
+    }
+
+    ptr = ikcp_encode_seg(ptr, seg);
+
+    if (seg->len > 0) {
+        memcpy(ptr, seg->data, seg->len);
+        ptr += seg->len;
+    }
+
+    return ptr;
+}
 
 //---------------------------------------------------------------------
 // ikcp_flush
@@ -1089,7 +1114,7 @@ void ikcp_flush(ikcpcb *kcp)
 	int count, size, i;
 	IUINT32 resent, cwnd;
 	IUINT32 rtomin;
-	struct IQUEUEHEAD *p, *next;
+	struct IQUEUEHEAD *p, *rd_p, *next;
 	int change = 0;
 	// int lost = 0;
 	IKCPSEG seg;
@@ -1248,27 +1273,34 @@ void ikcp_flush(ikcpcb *kcp)
 			kcp->f_resnd_size += (IKCP_OVERHEAD + segment->len);
 			kcp->f_resnd_times++;
 		}
+        
+        if (segment->xmit == 1 && kcp->rd_cnt > 0) {
+            int rd_snd_index = kcp->rd_cnt;
+            rd_p = p->prev;
+
+            while(rd_snd_index > 0 && rd_p != &kcp->snd_buf) {
+                IKCPSEG *rd_segment = iqueue_entry(rd_p, IKCPSEG, node);
+                rd_segment->ts = current;
+                rd_segment->wnd = seg.wnd;
+                rd_segment->una = kcp->rcv_nxt;
+
+                ptr = ikcp_send_seg(kcp, rd_segment, buffer, ptr);
+
+                kcp->rd_snd_times++;
+                kcp->rd_snd_size += (IKCP_OVERHEAD + rd_segment->len);
+
+                rd_snd_index--;
+                rd_p = rd_p->prev;
+            }
+
+        }
 
 		if (needsend) {
-			int size, need;
 			segment->ts = current;
 			segment->wnd = seg.wnd;
 			segment->una = kcp->rcv_nxt;
 
-			size = (int)(ptr - buffer);
-			need = IKCP_OVERHEAD + segment->len;
-
-			if (size + need > (int)kcp->mtu) {
-				ikcp_output(kcp, buffer, size);
-				ptr = buffer;
-			}
-
-			ptr = ikcp_encode_seg(ptr, segment);
-
-			if (segment->len > 0) {
-				memcpy(ptr, segment->data, segment->len);
-				ptr += segment->len;
-			}
+            ptr = ikcp_send_seg(kcp, segment, buffer, ptr);
 
 			if (segment->xmit >= kcp->dead_link) {
 				kcp->state = -1;
@@ -1311,7 +1343,6 @@ void ikcp_flush(ikcpcb *kcp)
 		kcp->incr = kcp->mss;
 	}
 }
-
 
 //---------------------------------------------------------------------
 // update state (call it repeatedly, every 10ms-100ms), or you can ask 
@@ -1461,6 +1492,14 @@ int ikcp_waitsnd(const ikcpcb *kcp)
 	return kcp->nsnd_buf + kcp->nsnd_que;
 }
 
+// redundancy data size
+int ikcp_rdcnt(ikcpcb *kcp, int rd_cnt)
+{
+    if(rd_cnt > 0)
+        kcp->rd_cnt = rd_cnt;
+
+    return 0;
+}
 
 // read conv
 IUINT32 ikcp_getconv(const void *ptr)

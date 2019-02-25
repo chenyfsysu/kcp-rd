@@ -30,7 +30,7 @@ int udp_output(const char *buf, int len, ikcpcb *kcp, void *user)
 void test(int mode)
 {
 	// 创建模拟网络：丢包率10%，Rtt 60ms~125ms
-	vnet = new LatencySimulator(10, 60, 125);
+	vnet = new LatencySimulator(20, 60, 225);
 
 	// 创建两个端点的 kcp对象，第一个参数 conv是会话编号，同一个会话需要相同
 	// 最后一个是 user参数，用来传递标识
@@ -64,7 +64,8 @@ void test(int mode)
 		// 普通模式，关闭流控等
 		async::ikcp_nodelay(kcp1, 0, 10, 0, 1);
 		async::ikcp_nodelay(kcp2, 0, 10, 0, 1);
-	}	else {
+    }
+    else if(mode == 2) {
 		// 启动快速模式
 		// 第二个参数 nodelay-启用以后若干常规加速将启动
 		// 第三个参数 interval为内部处理时钟，默认设置为 10ms
@@ -75,6 +76,14 @@ void test(int mode)
 		kcp1->rx_minrto = 10;
 		kcp1->fastresend = 1;
 	}
+    else {
+		async::ikcp_nodelay(kcp1, 1, 10, 2, 1);
+		async::ikcp_nodelay(kcp2, 1, 10, 2, 1);
+		kcp1->rx_minrto = 10;
+		kcp1->fastresend = 1;
+        async::ikcp_rdcnt(kcp1, 1);
+        async::ikcp_rdcnt(kcp2, 1);
+    }
 
 
 	char buffer[2000];
@@ -142,7 +151,7 @@ void test(int mode)
 			count++;
 			if (rtt > (IUINT32)maxrtt) maxrtt = rtt;
 
-			printf("[RECV] mode=%d sn=%d rtt=%d\n", mode, (int)sn, (int)rtt);
+			//printf("[RECV] mode=%d sn=%d rtt=%d\n", mode, (int)sn, (int)rtt);
 		}
 		if (next > 1000) break;
 	}
@@ -152,11 +161,12 @@ void test(int mode)
 	async::ikcp_release(kcp1);
 	async::ikcp_release(kcp2);
 
-	const char *names[3] = { "default", "normal", "fast" };
+	const char *names[4] = { "default", "normal", "fast", "redundancy" };
 	printf("%s mode result (%dms):\n", names[mode], (int)ts1);
 	printf("avgrtt=%d maxrtt=%d tx=%d\n", (int)(sumrtt / count), (int)maxrtt, (int)vnet->tx1);
-	printf("press enter to next ...\n");
-	char ch; scanf("%c", &ch);
+    printf("f_resnd_times=%d t_resnd_times=%d, rd_snd_times=%d\n", kcp1->f_resnd_times, kcp1->t_resnd_times, kcp1->rd_snd_times);
+	//printf("press enter to next ...\n");
+	//char ch; scanf("%c", &ch);
 }
 
 int main()
@@ -164,6 +174,7 @@ int main()
 	test(0);	// 默认模式，类似 TCP：正常模式，无快速重传，常规流控
 	test(1);	// 普通模式，关闭流控等
 	test(2);	// 快速模式，所有开关都打开，且关闭流控
+    test(3);    // 快速模式 && 冗余
 	return 0;
 }
 
