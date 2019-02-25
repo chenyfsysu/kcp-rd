@@ -17,6 +17,8 @@
 // 模拟网络
 LatencySimulator *vnet;
 
+const int SIM_COUNT = 10;
+
 // 模拟网络：模拟发送一个 udp包
 int udp_output(const char *buf, int len, ikcpcb *kcp, void *user)
 {
@@ -27,10 +29,10 @@ int udp_output(const char *buf, int len, ikcpcb *kcp, void *user)
 }
 
 // 测试用例
-void test(int mode)
+void test(int plr, int rtt_min, int rtt_max, int mode, int &out_sumrtt, int &out_maxrtt, int &out_tx)
 {
 	// 创建模拟网络：丢包率10%，Rtt 60ms~125ms
-	vnet = new LatencySimulator(20, 60, 225);
+	vnet = new LatencySimulator(plr, rtt_min, rtt_max);
 
 	// 创建两个端点的 kcp对象，第一个参数 conv是会话编号，同一个会话需要相同
 	// 最后一个是 user参数，用来传递标识
@@ -162,19 +164,54 @@ void test(int mode)
 	async::ikcp_release(kcp2);
 
 	const char *names[4] = { "default", "normal", "fast", "redundancy" };
-	printf("%s mode result (%dms):\n", names[mode], (int)ts1);
-	printf("avgrtt=%d maxrtt=%d tx=%d\n", (int)(sumrtt / count), (int)maxrtt, (int)vnet->tx1);
-    printf("f_resnd_times=%d t_resnd_times=%d, rd_snd_times=%d\n", kcp1->f_resnd_times, kcp1->t_resnd_times, kcp1->rd_snd_times);
+	//printf("%s mode result (%dms):\n", names[mode], (int)ts1);
+	//printf("avgrtt=%d maxrtt=%d tx=%d\n", (int)(sumrtt / count), (int)maxrtt, (int)vnet->tx1);
+    //printf("f_resnd_times=%d t_resnd_times=%d, rd_snd_times=%d\n", kcp1->f_resnd_times, kcp1->t_resnd_times, kcp1->rd_snd_times);
 	//printf("press enter to next ...\n");
 	//char ch; scanf("%c", &ch);
+    //
+    
+    out_sumrtt += sumrtt;
+    if(maxrtt > out_maxrtt) out_maxrtt = maxrtt;
+    out_tx += (int)vnet->tx1;
 }
 
+
+void test_group(int plr, int rtt_min, int rtt_max) {
+    printf("**延迟%d-%dms，丢包率%d%%**\n", rtt_min, rtt_max, plr);
+    int sumrtt1=0, maxrtt1=0, tx1=0;
+    int count = SIM_COUNT;
+    while(count--) {
+       test(plr, rtt_min, rtt_max, 2, sumrtt1, maxrtt1, tx1); 
+    }
+    //printf("avgrtt: %d, maxrtt: %d, tx: %d\n", (int)sumrtt1 / (SIM_COUNT * 1000), maxrtt1, (int)tx1 / SIM_COUNT);
+
+    int sumrtt2=0, maxrtt2=0, tx2=0;
+    count = SIM_COUNT;
+    while(count--) {
+       test(plr, rtt_min, rtt_max, 3, sumrtt2, maxrtt2, tx2); 
+    }
+    //printf("avgrtt: %d, maxrtt: %d, tx: %d\n", (int)sumrtt2 / (SIM_COUNT * 1000), maxrtt2, (int)tx2 / SIM_COUNT);
+
+    int avgrtt1 = (int)sumrtt1 / (SIM_COUNT * 1000);
+    int avgrtt2 = (int)sumrtt2 / (SIM_COUNT * 1000);
+    int avgtx1 = (int)tx1 / SIM_COUNT;
+    int avgtx2 = (int)tx2 / SIM_COUNT; 
+    printf("| | 平均rtt | 最大rtt | 发包量\n");
+    printf("| ------ | ------ | ------ | ------ |\n");
+    printf("| 无冗余 | %d | %d | %d |\n", avgrtt1, maxrtt1, avgtx1);
+    printf("| 冗余 | %d | %d | %d |\n", avgrtt2, maxrtt2, avgtx2);
+    printf("| 数据对比 | -%.2f%% | -%.2f%% | %.2f%% |\n", (avgrtt1 - avgrtt2) * 100.0 / avgrtt1, (maxrtt1 - maxrtt2) * 100.0 / maxrtt1, (avgtx2 - avgtx1) * 100.0 / avgtx1);
+}
 int main()
 {
-	test(0);	// 默认模式，类似 TCP：正常模式，无快速重传，常规流控
-	test(1);	// 普通模式，关闭流控等
-	test(2);	// 快速模式，所有开关都打开，且关闭流控
-    test(3);    // 快速模式 && 冗余
+    test_group(10, 5,  50);
+    test_group(10, 50, 100);
+    test_group(10, 100, 150);
+    test_group(10, 150, 200);
+    test_group(20, 150, 200);
+    test_group(20, 200, 300);
+    test_group(30, 200, 300);
 	return 0;
 }
 
