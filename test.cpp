@@ -17,7 +17,7 @@
 // 模拟网络
 LatencySimulator *vnet;
 
-const int SIM_COUNT = 10;
+const int SIM_COUNT = 1;
 
 // 模拟网络：模拟发送一个 udp包
 int udp_output(const char *buf, int len, ikcpcb *kcp, void *user)
@@ -205,7 +205,7 @@ void test_group(int plr, int rtt_min, int rtt_max) {
 }
 int main()
 {
-    test_group(10, 5,  50);
+    test_group(5, 5,  50);
     test_group(10, 50, 100);
     test_group(10, 100, 150);
     test_group(10, 150, 200);
